@@ -1,0 +1,1 @@
+Flask doesn't reload automatically, have to add debug=True flag # http://stackoverflow.com/a/19825140/3937702
