@@ -1,18 +1,26 @@
 import sqlite3 as lite
 import time
 
-# -*- coding: utf-8 -*-
-# make sure it's a new style class
-__metaclass__ = type
+
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
 
 
 class RequestDB:
+    __metaclass__ = Singleton
+
     def __init__(self):
 
         self.dbPath = 'request.db'
         self.con = None
         self.get_connection(self.dbPath)
-        self.con.cursor().execute("CREATE TABLE IF NOT EXISTS Request(HashKey TEXT, Hash TEXT, Cookie TEXT, Status INT, GraphId INT)")
+        query = "CREATE TABLE IF NOT EXISTS Request(HashKey TEXT, Hash TEXT, Cookie TEXT, Status INT, GraphId INT)"
+        self.con.cursor().execute(query)
 
     def get_connection(self, db_path):
         try:
