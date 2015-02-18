@@ -1,1 +1,4 @@
 Flask doesn't reload automatically, have to add debug=True flag # http://stackoverflow.com/a/19825140/3937702
+For getting url parameters from flask, just > request.args.get('user')
+	http://stackoverflow.com/questions/11774265/flask-how-do-you-get-a-query-string-from-flask
+	http://flask.pocoo.org/docs/0.10/quickstart/#the-request-object

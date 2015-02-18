@@ -20,25 +20,6 @@
     </annotationProcessing>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Android Lint</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Abstraction issues</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.5+ (/usr/bin/python2.7)" project-jdk-type="Python SDK" />
   <component name="masterDetails">
     <states>
