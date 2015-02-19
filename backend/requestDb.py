@@ -58,6 +58,12 @@ class RequestDB:
         except TypeError and IndexError:
             return 202
 
+    def get_request(self, key, hash):
+        cur = self.con.cursor()
+        values = (key, str(hash),)
+        row = cur.execute("SELECT * FROM Request WHERE HashKey=? AND Hash=? ", values).fetchall()
+        return row[0]
+
     def set_request(self, key, hash):
         query_values = (key, str(hash), 'cookie', 202,)
         cur = self.con.cursor()

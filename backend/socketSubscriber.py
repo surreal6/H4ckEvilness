@@ -1,7 +1,8 @@
-import time
 import zmq
+from functions import generate_email_hash
+from servicesWorker.mainWorker import ServiceWorker
 
-port = "5557"
+port = "5500"
 
 # Socket to talk to server
 context = zmq.Context()
@@ -14,5 +15,5 @@ socket.setsockopt(zmq.SUBSCRIBE, "email")
 while True:
     string = socket.recv()
     key, value = string.split('|')
-    # TODO. Send to worker.
+    ServiceWorker("email", generate_email_hash(value)).start()
     print "email>"+value

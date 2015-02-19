@@ -1,22 +1,9 @@
 import hashlib
-import time
 from flask import make_response
-import zmq
-from zmq.backend.cython.socket import ZMQError
+from Sockets.publisher import SocketPublisher
 from requestDb import RequestDB
 
 KEY = "MK7Bl7O903"
-PUB_PORT = "5557"
-
-context = zmq.Context()
-socket = context.socket(zmq.PUB)
-time.sleep(1)
-try:
-    socket.bind("tcp://*:%s" % PUB_PORT)
-except ZMQError:
-    socket.close()
-    socket = context.socket(zmq.PUB)
-    # socket.bind("tcp://*:%s" % PUB_PORT)
 
 
 def generate_email_hash(email_in):
@@ -24,7 +11,9 @@ def generate_email_hash(email_in):
 
 
 def publish_to_queue_email(email_in):
-    socket.send_string("email|%s" % email_in)
+    publisher = SocketPublisher()
+    publisher.send_string("email|%s" % email_in)
+    publisher.close()
 
 
 def get_uncompleted_request(urlIn):
@@ -38,4 +27,4 @@ def get_uncompleted_request(urlIn):
 def get_model(key, hash):
     # TODO. Connect to GraphDB.
     db = RequestDB()
-    return make_response(str(db.query("SELECT * FROM Request WHERE Hash='"+str(hash)+"'")), 200)
+    return make_response(str(db.get_request(key, hash)), 200)
