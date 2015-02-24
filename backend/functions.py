@@ -1,14 +1,12 @@
 import hashlib
+
 from flask import make_response
+
 from Sockets.publisher import SocketPublisher
-from requestDb import RequestDB
+from databases.requestDb import RequestDB
+
 
 KEY = "MK7Bl7O903"
-
-
-def generate_email_hash(email_in):
-    return hashlib.sha224(email_in+KEY).hexdigest()
-
 
 def publish_to_queue_email(email_in):
     publisher = SocketPublisher()
@@ -17,9 +15,14 @@ def publish_to_queue_email(email_in):
 
 
 def get_uncompleted_request(urlIn):
-    resp = make_response('301', 202)
+    resp = make_response('Not yet', 202)
     resp.headers['Location'] = '/url/'+urlIn+"/"
-    resp.headers['location'] = '/url/'+urlIn+"/"
+    resp.headers['Retry-After]'] = '2'
+    return resp
+
+
+def get_unfound_url():
+    resp = make_response('Not found', 404)
     resp.headers['Retry-After]'] = '2'
     return resp
 

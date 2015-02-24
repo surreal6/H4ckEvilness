@@ -20,7 +20,7 @@ class SingleWorker(multiprocessing.Process):
 
 class FacebookCrawler(SingleWorker):
 
-    MSG = "Running facebook crawler"
+    MSG = "\t\tRunning facebook crawler"
 
     def run(self):
         print self.MSG

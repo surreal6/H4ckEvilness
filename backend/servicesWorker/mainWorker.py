@@ -23,7 +23,7 @@ class ServiceWorker(multiprocessing.Process):
 
         for j in jobs:
             j.join()
-        print "All crawlers finished"
+        print "\tAll crawlers finished"
         return
 
     def __init__(self, key, value):

@@ -5,3 +5,33 @@ For getting url parameters from flask, just > request.args.get('user')
 Python singleton> 
 	http://stackoverflow.com/questions/6760685/creating-a-singleton-in-python
 	http://python-3-patterns-idioms-test.readthedocs.org/en/latest/Singleton.html
+
+Python threads and workers:
+	http://pymotw.com/2/multiprocessing/basics.html 
+
+PostgreSQL
+	sudo apt-get install postgresql-client
+	sudo service postgresql start
+	sudo -u postgres createuser USER -d -s -W
+	sudo -u postgres createdb DATABASE -O USER
+	sudo -u postgres psql -c "ALTER USER USER PASSWORD 'PASSWORD';"	
+	http://stackoverflow.com/questions/7695962/postgresql-password-authentication-failed-for-user-postgres
+	http://zetcode.com/db/postgresqlpythontutorial/
+	sudo apt-get install pgadmin3 #GUI
+	Create
+		create table if exists
+	Serial
+		id serial not null #AutoIncrement id
+	Unique
+		email text unique #Unique value
+	Drop column
+		alter table _table drop column _column;
+	Add column
+		alter table _table add column _column type (extra fields such as unique);
+	\c _database #Connects to database
+	\d _database #Shows tables from _database
+	\d _table #shows columns from _table
+	select * from _table;
+	
+	Insert
+		When inserting values in a terminal or raw query, use single quotes.
