@@ -45,6 +45,8 @@ class MainWorker(multiprocessing.Process):
         print "\tAll crawlers finished"
         maindb = MainDB()
         maindb.set_user_status(user_id=self.user_id, status=200)
+        maindb.set_services_models(self.user_id, self.servicesModels)
+        maindb.set_user_model(self.user_id, self.cross_model)
         return
 
     def __init__(self, key, value, user_id):

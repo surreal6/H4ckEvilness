@@ -1,6 +1,6 @@
 from itertools import cycle
 import psycopg2
-from psycopg2._psycopg import InternalError
+from psycopg2._psycopg import InternalError, IntegrityError
 from Metas.Patterns import Singleton
 
 _dbname = 'evilDatabase'
@@ -93,7 +93,20 @@ class MainDB:
     def get_user_by_id(self, user_id):
         query = "SELECT * FROM users where id = %s"
         values = (user_id,)
-        return self.select(query, values=values)
+        user_data = self.select(query, values=values)
+        user_data['services'] = self.get_services_data(user_id)
+        return user_data
+
+    def get_services_data(self, user_id):
+        query = "select user_services.url_profile, user_services.nick, user_services.nick_id, services.s_name from user_services left join services on user_services.service_fk=services.id where user_services.user_fk=%s"
+        values = (user_id,)
+        result = self.select(query, values)
+        returno = {}
+        for service in result:
+            key = service['s_name']
+            del service['s_name']
+            returno[key] = service
+        return returno
 
     def put_user_by_email(self, email_in):
         query = "INSERT INTO users(email) VALUES(%s) RETURNING id"
@@ -123,3 +136,41 @@ class MainDB:
         query = "SELECT * FROM services where model_name = %s LIMIT 1"
         values = (s_name,)
         return self.select(query, values)
+
+    def set_services_models(self, user_id, services):
+        for key, service in services.iteritems():
+            try:
+                self.insert_service_model(user_id, service)
+            except IntegrityError:
+                self.update_service_model(user_id, service)
+
+    def insert_service_model(self, user_id, service):
+        query = "INSERT INTO user_services(user_fk, service_fk, url_profile, nick) VALUES(%s, %s, %s, %s) RETURNING user_fk"
+        values = (
+            int(user_id),
+            int(service.id),
+            service.url_profile,
+            service.nick,
+        )
+        result = self.insert(query, values)[0]
+        print "Result: "+str(result)
+
+    def update_service_model(self, user_id, service):
+        query = "update user_services set url_profile=%s, nick=%s where user_fk=%s and service_fk=%s RETURNING user_fk"
+        values = (
+            service.url_profile,
+            service.nick,
+            int(user_id),
+            int(service.id),
+        )
+        result = self.insert(query, values)[0]
+        print "update: "+str(result)
+
+    def set_user_model(self, user_id, user_model):
+        query = "update users set name=%s where id=%s RETURNING id"
+        values = (
+            user_model.name,
+            int(user_id),
+        )
+        result = self.insert(query, values)[0]
+        print "update user: "+str(result)

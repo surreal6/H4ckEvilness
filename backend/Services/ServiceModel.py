@@ -3,14 +3,15 @@ from databases.mainDb import MainDB
 
 class ServiceModel(object):
 
-    _fields = ('url_base', 'url_profile_rgx',)
+    _fields = ('url_base', 'url_profile_rgx', 'id')
 
     url_profile = None
     url_profile_rgx = None
     url_base = None
-
     id = None
+
     nick = None
+    nick_id = None
     candidates_ = {}
 
     def __init__(self):
