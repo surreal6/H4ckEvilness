@@ -1,16 +1,17 @@
 # Here, the crawler triggers the requested search for N services (the existing ones).
 # Results will be written in the ddbb.
 import multiprocessing
+
 from requests.packages import urllib3
+
 from Services.CrossModel import CrossModel
-from Services.Github import GithubModel
-from Services.Twitter import TwitterModel
+from Services.Github import *
+from Services.Twitter import *
+from Services.Bing import *
 from databases.mainDb import MainDB
-from servicesWorker.BingSearchAPI import BingCrawler
-from servicesWorker.SingleWorker import FacebookCrawler, SingleWorker
+from servicesWorker.ServiceWorker import ServiceWorker
 
-
-class ServiceWorker(multiprocessing.Process):
+class MainWorker(multiprocessing.Process):
 
     key = None
     value = None
@@ -55,7 +56,7 @@ class ServiceWorker(multiprocessing.Process):
         self.tasks = multiprocessing.JoinableQueue()
         self.results = multiprocessing.Queue()
         setattr(self.cross_model, key, value)
-        super(ServiceWorker, self).__init__()
+        super(MainWorker, self).__init__()
 
     def __init_services(self):
         for key, className in self.services.iteritems():

@@ -21,14 +21,16 @@ class MainDB:
 
     def get_connection(self):
         try:
-            try:
-                self.conn.close()
-                print "Closing connection"
-            except AttributeError:
-                pass
+            self.close()
             self.conn = psycopg2.connect(database=_dbname, user=_user, host=_host, password=_pass)
         except Exception as e:
             print "I am unable to connect to the database "+e.message
+
+    def close(self):
+        try:
+            self.conn.close()
+        except AttributeError:
+            pass
 
     def select(self, query, values=None):
         self.get_connection()

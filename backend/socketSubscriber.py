@@ -1,5 +1,5 @@
 import zmq
-from servicesWorker.mainWorker import ServiceWorker
+from servicesWorker.mainWorker import MainWorker
 
 port = "5500"
 
@@ -14,5 +14,5 @@ socket.setsockopt(zmq.SUBSCRIBE, "email")
 while True:
     string = socket.recv()
     key, value, user_id = string.split('|')
-    ServiceWorker("email", value, user_id).start()
+    MainWorker("email", value, user_id).start()
     print "email>"+value

@@ -2,7 +2,7 @@ import multiprocessing
 from databases.mainDb import MainDB
 
 
-class SingleWorker(multiprocessing.Process):
+class ServiceWorker(multiprocessing.Process):
 
     MSG = 'Running service'
     services_models = {}
@@ -44,10 +44,10 @@ class SingleWorker(multiprocessing.Process):
         self.task_queue = task_queue
         self.result_queue = result_queue
         self.set_auth_values()
-        super(SingleWorker, self).__init__()
+        super(ServiceWorker, self).__init__()
 
 
-class FacebookCrawler(SingleWorker):
+class FacebookCrawler(ServiceWorker):
 
     MSG = "\t\tRunning facebook crawler"
 

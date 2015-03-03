@@ -9,10 +9,10 @@ import requests
 
 from Utils.functions import replace_symbols
 from Utils.regex import get_regex_match_group
-from servicesWorker.SingleWorker import SingleWorker
+from servicesWorker.ServiceWorker import ServiceWorker
 
 
-class BingCrawler(SingleWorker):
+class BingCrawler(ServiceWorker):
     MSG = "\t\tRunning bing api search"
     results_rows = []
 
