@@ -1,7 +1,7 @@
 from flask import Flask, make_response, request
-from databases.mainDb import MainDB
 
-from functions import publish_to_queue_email, get_uncompleted_request, get_model, get_unfound_url
+from databases.mainDb import MainDB
+from Utils.functions import publish_to_queue_email, get_uncompleted_request, get_unfound_url
 from databases.requestDb import RequestDB
 
 
@@ -11,7 +11,6 @@ app = Flask(__name__)
 @app.route('/email/', methods=[u'GET'])
 def email():
     email_in = str(request.args.get('email'))
-    publish_to_queue_email(email_in)
     db = RequestDB()
     db.set_request("email", email_in)
     maindb = MainDB()
@@ -23,6 +22,7 @@ def email():
         user_status = user['status']
         if user_status is 200:
             maindb.set_user_updating(user_id=user_id)
+    publish_to_queue_email(email_in, user_id)
     resp = make_response('202', 301)
     location_url = '/url/'+str(user_id)+"/"
     print location_url

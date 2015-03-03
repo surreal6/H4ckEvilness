@@ -13,7 +13,6 @@ class MainDB:
     __metaclass__ = Singleton
 
     def __init__(self):
-        self.conn = None
         self.get_connection()
 
     def __del__(self):
@@ -22,12 +21,17 @@ class MainDB:
 
     def get_connection(self):
         try:
+            try:
+                self.conn.close()
+                print "Closing connection"
+            except AttributeError:
+                pass
             self.conn = psycopg2.connect(database=_dbname, user=_user, host=_host, password=_pass)
-            print "Connected"
         except Exception as e:
             print "I am unable to connect to the database "+e.message
 
     def select(self, query, values=None):
+        self.get_connection()
         try:
             return self.__select(query, values)
         except InternalError:
@@ -55,6 +59,7 @@ class MainDB:
         return rows[0] if len(rows) == 1 else rows
 
     def insert(self, query, values=None):
+        self.get_connection()
         try:
             return self.__insert(query, values)
         except InternalError:
@@ -86,7 +91,7 @@ class MainDB:
     def get_user_by_id(self, user_id):
         query = "SELECT * FROM users where id = %s"
         values = (user_id,)
-        return self.select(query, values)
+        return self.select(query, values=values)
 
     def put_user_by_email(self, email_in):
         query = "INSERT INTO users(email) VALUES(%s) RETURNING id"
@@ -106,3 +111,13 @@ class MainDB:
             values = (status, user_id,)
             #Returns user's id.
             return self.insert(query, values)[0]
+
+    def get_service_values_by_name(self, s_name=None):
+        query = "SELECT * FROM services where crawler_name = %s LIMIT 1"
+        values = (s_name,)
+        return self.select(query, values)
+
+    def get_service_values_by_model_name(self, s_name=None):
+        query = "SELECT * FROM services where model_name = %s LIMIT 1"
+        values = (s_name,)
+        return self.select(query, values)

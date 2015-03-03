@@ -1,7 +1,14 @@
 import requests
 import time
+import sys
 
-r = requests.get('http://127.0.0.1:5000/email/?email=aasdf@r.com')
+if len(sys.argv) is 2:
+    email = sys.argv[1]
+else:
+    email = "mariano.rajoy@pp.es"
+
+print email
+r = requests.get('http://127.0.0.1:5000/email/?email='+email)
 
 url = r.headers['Location']
 print "Redirect to: "+url

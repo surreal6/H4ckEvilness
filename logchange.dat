@@ -18,20 +18,10 @@ PostgreSQL
 	http://stackoverflow.com/questions/7695962/postgresql-password-authentication-failed-for-user-postgres
 	http://zetcode.com/db/postgresqlpythontutorial/
 	sudo apt-get install pgadmin3 #GUI
-	Create
-		create table if exists
-	Serial
-		id serial not null #AutoIncrement id
-	Unique
-		email text unique #Unique value
-	Drop column
-		alter table _table drop column _column;
-	Add column
-		alter table _table add column _column type (extra fields such as unique);
-	\c _database #Connects to database
-	\d _database #Shows tables from _database
-	\d _table #shows columns from _table
-	select * from _table;
-	
-	Insert
-		When inserting values in a terminal or raw query, use single quotes.
+
+Bing api search
+	https://datamarket.azure.com/dataset/explore/5ba839f1-12ce-4cce-bf57-a49d98d29a44
+	http://www.bing.com/developers/s/APIBasics.html
+	https://datamarket.azure.com/dataset/explore/bing/search
+	https://msdn.microsoft.com/en-us/library/dd251056.aspx
+	https://github.com/xthepoet/pyBingSearchAPI
