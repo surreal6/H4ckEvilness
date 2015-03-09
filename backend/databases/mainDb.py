@@ -153,7 +153,6 @@ class MainDB:
             service.nick,
         )
         result = self.insert(query, values)[0]
-        print "Result: "+str(result)
 
     def update_service_model(self, user_id, service):
         query = "update user_services set url_profile=%s, nick=%s where user_fk=%s and service_fk=%s RETURNING user_fk"
@@ -164,7 +163,14 @@ class MainDB:
             int(service.id),
         )
         result = self.insert(query, values)[0]
-        print "update: "+str(result)
+
+    def get_service_model(self, user_id, service):
+        query = "SELECT * FROM user_services where user_fk=%s and service_fk=%s"
+        values = (
+            int(user_id),
+            int(service.id),
+        )
+        return self.select(query, values)
 
     def set_user_model(self, user_id, user_model):
         query = "update users set name=%s where id=%s RETURNING id"
@@ -173,4 +179,3 @@ class MainDB:
             int(user_id),
         )
         result = self.insert(query, values)[0]
-        print "update user: "+str(result)

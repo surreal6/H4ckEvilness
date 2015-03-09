@@ -13,10 +13,6 @@ class ServiceWorker(multiprocessing.Process):
     auth_key = None
     _fields = ('url_api', 'auth_email', 'auth_pass', 'auth_key')
 
-    def run(self):
-        print self.MSG
-        self.queue_models()
-
     def queue_models(self):
         self.result_queue.put({"services": self.services_models, "cross": self.cross_model})
 

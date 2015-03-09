@@ -13,10 +13,11 @@ from servicesWorker.ServiceWorker import ServiceWorker
 
 
 class BingCrawler(ServiceWorker):
-    MSG = "\t\tRunning bing api search"
+    MSG = "\tRunning bing api search"
     results_rows = []
 
     def run(self):
+        print self.MSG
         params = {'ImageFilters': '"Face:Face"',
                   '$format': 'json',
                   '$top': 50,
@@ -24,8 +25,7 @@ class BingCrawler(ServiceWorker):
         self.search_email(self.cross_model.email, params)
         self.search_email_prefix(self.cross_model.email_prefix, params)
         self.process_api_result()
-        self.get_db_values()
-        super(BingCrawler, self).run()
+        self.queue_models()
 
     def search_email(self, email, params):
         request = self.search('web', email, params, exact_match=True).json()

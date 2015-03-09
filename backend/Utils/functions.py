@@ -33,6 +33,7 @@ def get_model(key, hash):
     db = RequestDB()
     return make_response(str(db.get_request(key, hash)), 200)
 
+
 def replace_symbols(request):
     # Custom urlencoder.
     # They specifically want %27 as the quotation which is a single quote '
@@ -43,3 +44,25 @@ def replace_symbols(request):
     request = string.replace(request, ' ', '%20')
     request = string.replace(request, ':', '%3a')
     return request
+
+
+def get_tag_value(node):
+    """retrieves value of given XML node
+    parameter:
+    node - node object containing the tag element produced by minidom
+
+    return:
+    content of the tag element as string
+    """
+
+    xml_str = node  # flattens the element to string
+
+    # cut off the base tag to get clean content:
+    start = xml_str.find('>')
+    if start == -1:
+        return ''
+    end = xml_str.rfind('<')
+    if end < start:
+        return ''
+
+    return xml_str[start + 1:end]
