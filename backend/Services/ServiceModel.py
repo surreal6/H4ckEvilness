@@ -1,8 +1,9 @@
+from Metas.DbFieldsReading import DbFieldsReading
 from Utils.dictMixing import sym_diff_and_adding_intersec, get_highest_value_key
 from databases.mainDb import MainDB
 
 
-class ServiceModel(object):
+class ServiceModel(DbFieldsReading):
     _fields = ('url_base', 'url_profile_rgx', 'id')
     _user_fields = ('url_profile', 'nick', 'nick_id')
 
@@ -49,16 +50,6 @@ class ServiceModel(object):
             pass
             # TODO
 
-    def get_user_values(self, user_id):
+    def get_user_values(self, user_id=None):
         maindb = MainDB()
         return maindb.get_service_model(user_id, self)
-
-    def set_user_values(self, user_id):
-        try:
-            values = self.get_user_values(user_id)
-            for key, value in values.iteritems():
-                if key in self._user_fields:
-                    self.__setattr__(key, value)
-        except Exception:
-            pass
-            # TODO

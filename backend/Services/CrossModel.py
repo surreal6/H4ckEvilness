@@ -1,5 +1,8 @@
+from Metas.DbFieldsReading import DbFieldsReading
+from databases.mainDb import MainDB
 
-class CrossModel(object):
+
+class CrossModel(DbFieldsReading):
 
     email = None
     email_prefix = None
@@ -10,8 +13,12 @@ class CrossModel(object):
     names_ = {}
     emails_ = {}
     diff_urls = {}
+    _user_fields = ('email', 'name')
 
-    def __init__(self):
+    def __init__(self, user_id=None):
+        super(CrossModel, self).__init__()
+        if user_id:
+            pass
         self.diff_urls = dict()
         self.emails_ = dict()
         self.names_ = dict()
@@ -45,3 +52,7 @@ class CrossModel(object):
                 final_candidate = key
                 final_candidate_value = value
         self.name = final_candidate
+
+    def get_user_values(self, user_id=None):
+        maindb = MainDB()
+        return maindb.getttttttttttttttttttttt_user(self, user_id=user_id)

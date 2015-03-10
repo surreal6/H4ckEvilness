@@ -3,7 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/Utils/functions.py" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/databases/mainDb.py" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/databases/requestDb.py" dialect="SQLite" />
   </component>
 </project>
 

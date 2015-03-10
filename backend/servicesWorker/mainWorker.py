@@ -23,7 +23,8 @@ class MainWorker(multiprocessing.Process):
 
     def run(self):
         jobs = []
-        self.__init_services_models()
+        self.__init_models()
+        # self.__init_cross_model()
         self.__init_services()
         self.run_services_and_join(jobs)
         self.set_jobs_results_in_model(jobs)
@@ -69,7 +70,8 @@ class MainWorker(multiprocessing.Process):
         setattr(self.cross_model, key, value)
         super(MainWorker, self).__init__()
 
-    def __init_services_models(self):
+    def __init_models(self):
+        self.cross_model.set_user_values(self.user_id)
         for key, service in self.servicesModels.iteritems():
             service.set_user_values(self.user_id)
 

@@ -4,7 +4,6 @@ import string
 from flask import make_response
 
 from Sockets.publisher import SocketPublisher
-from databases.requestDb import RequestDB
 
 
 KEY = "MK7Bl7O903"
@@ -26,12 +25,6 @@ def get_unfound_url():
     resp = make_response('Not found', 404)
     resp.headers['Retry-After]'] = '2'
     return resp
-
-
-def get_model(key, hash):
-    # TODO. Connect to GraphDB.
-    db = RequestDB()
-    return make_response(str(db.get_request(key, hash)), 200)
 
 
 def replace_symbols(request):
