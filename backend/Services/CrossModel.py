@@ -41,8 +41,6 @@ class CrossModel(DbFieldsReading):
         self.diff_urls.update(third.diff_urls)
         self.emails_.update(third.emails_)
         self.names_.update(third.names_)
-        self.populate_name()
-        # self.populate_email()
 
     def populate_name(self):
         final_candidate = None
@@ -52,7 +50,9 @@ class CrossModel(DbFieldsReading):
                 final_candidate = key
                 final_candidate_value = value
         self.name = final_candidate
+        if self.name:
+            print "** Name> "+self.name +"("+str(final_candidate_value)+")"
 
     def get_user_values(self, user_id=None):
         maindb = MainDB()
-        return maindb.getttttttttttttttttttttt_user(self, user_id=user_id)
+        return maindb.get_user(self, user_id=user_id)

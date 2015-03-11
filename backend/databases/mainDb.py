@@ -103,9 +103,12 @@ class MainDB:
         result = self.select(query, values)
         returno = {}
         for service in result:
-            key = service['s_name']
-            del service['s_name']
-            returno[key] = service
+            try:
+                key = service['s_name']
+                del service['s_name']
+                returno[key] = service
+            except TypeError:
+                pass
         return returno
 
     def put_user_by_email(self, email_in):

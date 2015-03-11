@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4198c27c-9ee1-40b6-949f-73857a346035" name="Default" comment="Stable case including name&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Metas/DbFieldsReading.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/databases/requestDb.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/databases/usersDb.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../logchange.dat" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Services/CrossModel.py" afterPath="$PROJECT_DIR$/Services/CrossModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Services/ServiceModel.py" afterPath="$PROJECT_DIR$/Services/ServiceModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend.py" afterPath="$PROJECT_DIR$/backend.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/functions.py" afterPath="$PROJECT_DIR$/Utils/functions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/mainDb.py" afterPath="$PROJECT_DIR$/databases/mainDb.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/servicesWorker/mainWorker.py" afterPath="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,9 +19,9 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/backend$_requestEmail.coverage" NAME="_requestEmail Coverage Results" MODIFIED="1424276112914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1425895918773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1425996457806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/backend$usersDb.coverage" NAME="usersDb Coverage Results" MODIFIED="1424439776371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/databases" />
-    <SUITE FILE_PATH="coverage/backend$socketSubscriber.coverage" NAME="socketSubscriber Coverage Results" MODIFIED="1425899019200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend$socketSubscriber.coverage" NAME="socketSubscriber Coverage Results" MODIFIED="1425996512085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/backend$mainWorker.coverage" NAME="mainWorker Coverage Results" MODIFIED="1424768054385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/servicesWorker" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -40,37 +36,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="backend.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend.py">
+      <file leaf-file-name="mainWorker.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="893" max-vertical-offset="1584">
+              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#125#147#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainDb.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CrossModel.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.77474403" vertical-offset="255" max-vertical-offset="1134">
+              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainDb.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/databases/mainDb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44210526" vertical-offset="0" max-vertical-offset="3348">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="3348">
+              <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
-                <marker date="1425636268667" expanded="true" signature="2535:2569" placeholder="SELECT * FRO..users..." />
-                <marker date="1425636268667" expanded="true" signature="2701:2732" placeholder="SELECT * FRO..users..." />
-                <marker date="1425636268667" expanded="true" signature="2967:3166" placeholder="select user_..user_services..." />
-                <marker date="1425636268667" expanded="true" signature="3483:3531" placeholder="INSERT INTO ..." />
-                <marker date="1425636268667" expanded="true" signature="3697:3751" placeholder="update users..." />
-                <marker date="1425636268667" expanded="true" signature="3953:4006" placeholder="update users..." />
-                <marker date="1425636268667" expanded="true" signature="4202:4256" placeholder="SELECT * FRO..services..." />
-                <marker date="1425636268667" expanded="true" signature="4406:4458" placeholder="SELECT * FRO..services..." />
-                <marker date="1425636268667" expanded="true" signature="4878:4984" placeholder="INSERT INTO ..." />
-                <marker date="1425636268667" expanded="true" signature="5248:5349" placeholder="update user_..." />
-                <marker date="1425636268667" expanded="true" signature="5610:5670" placeholder="SELECT * FRO..user_services..." />
-                <marker date="1425636268667" expanded="true" signature="5869:5918" placeholder="update users..." />
+                <marker date="1425995432852" expanded="true" signature="2535:2569" placeholder="SELECT * FRO..users..." />
+                <marker date="1425995432852" expanded="true" signature="2701:2732" placeholder="SELECT * FRO..users..." />
+                <marker date="1425995432852" expanded="true" signature="2967:3166" placeholder="select user_..user_services..." />
+                <marker date="1425995432852" expanded="true" signature="3563:3611" placeholder="INSERT INTO ..." />
+                <marker date="1425995432852" expanded="true" signature="3777:3831" placeholder="update users..." />
+                <marker date="1425995432852" expanded="true" signature="4033:4086" placeholder="update users..." />
+                <marker date="1425995432852" expanded="true" signature="4282:4336" placeholder="SELECT * FRO..services..." />
+                <marker date="1425995432852" expanded="true" signature="4486:4538" placeholder="SELECT * FRO..services..." />
+                <marker date="1425995432852" expanded="true" signature="4958:5064" placeholder="INSERT INTO ..." />
+                <marker date="1425995432852" expanded="true" signature="5328:5429" placeholder="update user_..." />
+                <marker date="1425995432852" expanded="true" signature="5690:5750" placeholder="SELECT * FRO..user_services..." />
+                <marker date="1425995432852" expanded="true" signature="5949:5998" placeholder="update users..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backend.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="936">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,11 +98,53 @@
       <file leaf-file-name="functions.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utils/functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1188">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="publisher.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Sockets/publisher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="socketSubscriber.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socketSubscriber.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceModel.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Services/ServiceModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="1044">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DbFieldsReading.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Metas/DbFieldsReading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,7 +171,6 @@
         <option value="$PROJECT_DIR$/crawlingServices/MainCrawler.py" />
         <option value="$PROJECT_DIR$/servicesWorker/__init__.py" />
         <option value="$PROJECT_DIR$/socketPublisher.py" />
-        <option value="$PROJECT_DIR$/Sockets/publisher.py" />
         <option value="$PROJECT_DIR$/databases/usersDb.py" />
         <option value="$PROJECT_DIR$/Metas/Singleton.py" />
         <option value="$PROJECT_DIR$/Metas/Patterns.py" />
@@ -120,7 +180,6 @@
         <option value="$PROJECT_DIR$/servicesWorker/BingSearchAPI.py" />
         <option value="$PROJECT_DIR$/servicesWorker/SingleWorker.py" />
         <option value="$PROJECT_DIR$/Services/Twitter.py" />
-        <option value="$PROJECT_DIR$/databases/mainDb.py" />
         <option value="$PROJECT_DIR$/Services/DictMixing.py" />
         <option value="$PROJECT_DIR$/socketSubscriber.py" />
         <option value="$PROJECT_DIR$/Services/Github.py" />
@@ -129,11 +188,13 @@
         <option value="$PROJECT_DIR$/Utils/dictMixing.py" />
         <option value="$PROJECT_DIR$/Metas/DbFieldsReading.py" />
         <option value="$PROJECT_DIR$/Services/ServiceModel.py" />
-        <option value="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
-        <option value="$PROJECT_DIR$/Services/CrossModel.py" />
         <option value="$PROJECT_DIR$/databases/requestDb.py" />
         <option value="$PROJECT_DIR$/Utils/functions.py" />
         <option value="$PROJECT_DIR$/backend.py" />
+        <option value="$PROJECT_DIR$/databases/mainDb.py" />
+        <option value="$PROJECT_DIR$/Sockets/publisher.py" />
+        <option value="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
+        <option value="$PROJECT_DIR$/Services/CrossModel.py" />
       </list>
     </option>
   </component>
@@ -767,20 +828,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1682" height="1051" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1" y="0" width="1682" height="1051" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819384" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32671082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32671082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18192919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41450068" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5129959" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21365638" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21255507" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21192053" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -836,11 +897,16 @@
           <line>49</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Services/CrossModel.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="189" />
+      <option name="time" value="191" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1101,57 +1167,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/ServiceModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023094688" vertical-offset="214" max-vertical-offset="1080">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Metas/DbFieldsReading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12286689" vertical-offset="0" max-vertical-offset="879">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socketSubscriber.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.081911266" vertical-offset="0" max-vertical-offset="879">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Services/Github.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18430035" vertical-offset="0" max-vertical-offset="879">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.534642" vertical-offset="3" max-vertical-offset="1566">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#125#147#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.102389075" vertical-offset="0" max-vertical-offset="1134">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,34 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sockets/publisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12286689" vertical-offset="0" max-vertical-offset="879">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/dist-packages/psycopg2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.77186966" vertical-offset="1674" max-vertical-offset="3402">
@@ -1207,24 +1199,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Services/ServiceModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socketSubscriber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1188">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="936">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sockets/publisher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/databases/mainDb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44210526" vertical-offset="0" max-vertical-offset="3348">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="3348">
+          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1425636268667" expanded="true" signature="2535:2569" placeholder="SELECT * FRO..users..." />
-            <marker date="1425636268667" expanded="true" signature="2701:2732" placeholder="SELECT * FRO..users..." />
-            <marker date="1425636268667" expanded="true" signature="2967:3166" placeholder="select user_..user_services..." />
-            <marker date="1425636268667" expanded="true" signature="3483:3531" placeholder="INSERT INTO ..." />
-            <marker date="1425636268667" expanded="true" signature="3697:3751" placeholder="update users..." />
-            <marker date="1425636268667" expanded="true" signature="3953:4006" placeholder="update users..." />
-            <marker date="1425636268667" expanded="true" signature="4202:4256" placeholder="SELECT * FRO..services..." />
-            <marker date="1425636268667" expanded="true" signature="4406:4458" placeholder="SELECT * FRO..services..." />
-            <marker date="1425636268667" expanded="true" signature="4878:4984" placeholder="INSERT INTO ..." />
-            <marker date="1425636268667" expanded="true" signature="5248:5349" placeholder="update user_..." />
-            <marker date="1425636268667" expanded="true" signature="5610:5670" placeholder="SELECT * FRO..user_services..." />
-            <marker date="1425636268667" expanded="true" signature="5869:5918" placeholder="update users..." />
+            <marker date="1425995432852" expanded="true" signature="2535:2569" placeholder="SELECT * FRO..users..." />
+            <marker date="1425995432852" expanded="true" signature="2701:2732" placeholder="SELECT * FRO..users..." />
+            <marker date="1425995432852" expanded="true" signature="2967:3166" placeholder="select user_..user_services..." />
+            <marker date="1425995432852" expanded="true" signature="3563:3611" placeholder="INSERT INTO ..." />
+            <marker date="1425995432852" expanded="true" signature="3777:3831" placeholder="update users..." />
+            <marker date="1425995432852" expanded="true" signature="4033:4086" placeholder="update users..." />
+            <marker date="1425995432852" expanded="true" signature="4282:4336" placeholder="SELECT * FRO..services..." />
+            <marker date="1425995432852" expanded="true" signature="4486:4538" placeholder="SELECT * FRO..services..." />
+            <marker date="1425995432852" expanded="true" signature="4958:5064" placeholder="INSERT INTO ..." />
+            <marker date="1425995432852" expanded="true" signature="5328:5429" placeholder="update user_..." />
+            <marker date="1425995432852" expanded="true" signature="5690:5750" placeholder="SELECT * FRO..user_services..." />
+            <marker date="1425995432852" expanded="true" signature="5949:5998" placeholder="update users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Metas/DbFieldsReading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="893" max-vertical-offset="1584">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+          <folding>
+            <element signature="e#125#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77474403" vertical-offset="255" max-vertical-offset="1134">
+          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>

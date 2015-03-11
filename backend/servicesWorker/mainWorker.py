@@ -51,6 +51,7 @@ class MainWorker(multiprocessing.Process):
                 service = result_services_models.get(key, None)
                 if service:
                     value.mix_results(service)
+        self.cross_model.populate_name()
 
     def set_data_in_db(self):
         maindb = MainDB()
