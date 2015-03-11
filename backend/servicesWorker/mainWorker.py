@@ -15,7 +15,7 @@ class MainWorker(multiprocessing.Process):
 
     key = None
     value = None
-    services = {"bing": "BingCrawler", "github": "GithubCrawler"}
+    services = {"bing": "BingCrawler", "github": "GithubCrawler", "twitter": "TwitterCrawler"}
     servicesObjects = {}
     servicesModels = {"tw": TwitterModel(), "gh": GithubModel()}
     cross_model = CrossModel()

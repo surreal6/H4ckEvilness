@@ -2,7 +2,11 @@ import hashlib
 import string
 
 from flask import make_response
-
+import unicodedata
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+from unidecode import unidecode
 from Sockets.publisher import SocketPublisher
 
 
@@ -59,3 +63,8 @@ def get_tag_value(node):
         return ''
 
     return xml_str[start + 1:end]
+
+
+def remove_accents(input_str):
+    nkfd_form = unicodedata.normalize('NFKD', unicode(input_str))
+    return u"".join([c for c in nkfd_form if not unicodedata.combining(c)])
