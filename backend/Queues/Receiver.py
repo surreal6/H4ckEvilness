@@ -57,7 +57,7 @@ class ExchangeRpcReceiver(object):
 
     def on_message_received(self, ch, method, properties, body):
         try:
-            print " [*] %s" % (self.queue.method.queue,)
+            print "\n [*] %s received a request" % (self.queue.method.queue,)
             self.reset_values()
             self.unserialize_message(body)
             self.set_reply_values(properties)
@@ -68,7 +68,7 @@ class ExchangeRpcReceiver(object):
             print "Opsy!"
 
     def publish_back(self):
-        print "\t [x] Publishing results back to @%s\n" % (self.reply_to, )
+        print " [x] %s | Publishing results back to @%s" % (self.queue.method.queue, self.reply_to, )
 
         self.channel.basic_publish(
             exchange='',

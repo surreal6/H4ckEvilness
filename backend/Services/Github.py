@@ -1,21 +1,25 @@
 import requests
 from Services.ServiceModel import ServiceModel
 from Utils import functions
-from servicesWorker.ServiceWorker import ServiceWorker
+from servicesWorker.ServiceWorker import ServiceReceiver
 
 
-class GithubCrawler(ServiceWorker):
+class GithubModel(ServiceModel):
 
-    MSG = "\tRan github crawler"
+    def populate_candidate(self):
+        super(GithubModel, self).populate_candidate()
+        if self.url_profile:
+            self.nick = self.url_profile[self.url_profile.rfind("/")+1:]
 
-    def run(self):
-        print self.MSG
+
+class GithubRPCCrawler(ServiceReceiver):
+
+    def init_task(self):
         self.crawl_name()
-        self.queue_models()
-        super(GithubCrawler, self).run()
 
     def crawl_name(self):
-        this_service = self.services_models['gh']
+        print " [x] %s | Crawling name for email \"%s\"" % (self.queue.method.queue, self.cross.email, )
+        this_service = self.services['gh']
         if this_service and this_service.url_profile:
             print "\t\tLooking for user name"
             if "http" not in this_service.url_profile:
@@ -26,13 +30,5 @@ class GithubCrawler(ServiceWorker):
             for line in r.iter_lines():
                 if line and ("vcard-fullname" in line):
                     name = functions.get_tag_value(line)
-                    self.cross_model.put_name_candidate(name)
+                    self.cross.put_name_candidate(name)
         pass
-
-
-class GithubModel(ServiceModel):
-
-    def populate_candidate(self):
-        super(GithubModel, self).populate_candidate()
-        if self.url_profile:
-            self.nick = self.url_profile[self.url_profile.rfind("/")+1:]
