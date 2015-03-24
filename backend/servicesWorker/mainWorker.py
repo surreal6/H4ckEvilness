@@ -45,8 +45,9 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         self.publish()
         self.wait_responses()
         #self.set_results_in_instance() inside wait_response > on_emit_callback() >
+        print " [*] All services finished and results were mixed. Writing results in db..."
         self.set_results_in_db()
-        print " [x] All crawlers finished"
+        print " [*] == DONE ==\n\n"
         return
 
     #Mixes existing values with coming ones.
@@ -54,9 +55,7 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         callback_result = self.unserialize_body_msg(body)
         result_services_models = callback_result.get("services", None)
         result_cross_model = callback_result.get("cross", None)
-        reply_queue = callback_result.get("reply_queue")
 
-        print "Reply queue %s" % (reply_queue,)
         self.cross_model.mix_results(result_cross_model)
         for key, value in self.servicesModels.iteritems():
             service = result_services_models.get(key, None)
@@ -97,6 +96,15 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
             "services": services,
             "msg": json_obj['msg'],
         }
+
+    def log_publish(self):
+        print " [*] Asking services to get info from \"%s\"" % (self.cross_model.email,)
+        print " [*] Waiting reply @%s" % (self.callback_queue.method.queue,)
+
+    def log_callback(self, body):
+        callback_result = self.unserialize_body_msg(body)
+        reply_queue = callback_result.get("reply_queue")
+        print " [+] %s replied. Mixing results..." % (reply_queue,)
 
     def set_models_from_db(self):
         self.cross_model.set_user_values(self.user_id)

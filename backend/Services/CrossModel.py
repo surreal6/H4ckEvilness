@@ -53,8 +53,8 @@ class CrossModel(DbFieldsReading):
     def mix_names(self):
         # HINT. Not efficient. Not at all.
         new_names_ = {}
-        print "Candidate len: " + str(len(self.names_))
-        print "Candidate names: " + str(self.names_)
+        # print "Candidate len: " + str(len(self.names_))
+        # print "Candidate names: " + str(self.names_)
         completeLoop = False
         while not completeLoop:
             for key, value in self.names_.iteritems():
@@ -92,8 +92,8 @@ class CrossModel(DbFieldsReading):
                 if match:
                     break
             completeLoop = True
-        print "_Candidate len: " + str(len(self.names_))
-        print "_Candidate names: " + str(self.names_)
+        # print "_Candidate len: " + str(len(self.names_))
+        # print "_Candidate names: " + str(self.names_)
 
     def populate_name(self):
         self.mix_names()

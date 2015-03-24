@@ -20,7 +20,6 @@ class ExchangeRpcWorker(object):
 
     def declare_queues(self):
         self.callback_queue = self.channel.queue_declare(exclusive=True)
-        print " [x] Callback queue -> %r" % (self.callback_queue.method.queue,)
         self.channel.queue_bind(
             exchange=PULL_EXCHANGE,
             queue=self.callback_queue.method.queue
@@ -37,10 +36,7 @@ class ExchangeRpcWorker(object):
                 correlation_id=self.callback_queue.method.queue,
             ),
         )
-
-        print " [x] Sent -> %s" % (json.loads(body_msg).get("msg"),)
-        print " [*] Waiting reply @%s" % (json.loads(body_msg).get("exchange_str"),)
-        print "\n"
+        self.log_publish()
 
     def wait_responses(self):
         try:
@@ -56,6 +52,7 @@ class ExchangeRpcWorker(object):
 
     def on_emit_callback(self, ch, method, properties, body):
         if properties.correlation_id == self.callback_queue.method.queue:
+            self.log_callback(body)
             self.set_results_in_instance(body)
             self.check_stop_condition()
 
@@ -78,3 +75,8 @@ class ExchangeRpcWorker(object):
     def unserialize_body_msg(self, body):
         raise NotImplementedError
 
+    def log_publish(self):
+        raise NotImplementedError
+
+    def log_callback(self, body):
+        raise NotImplementedError

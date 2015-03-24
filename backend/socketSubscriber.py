@@ -14,5 +14,4 @@ socket.setsockopt(zmq.SUBSCRIBE, "email")
 while True:
     string = socket.recv()
     key, value, user_id = string.split('|')
-    print "Received "+key+">"+value
     MainWorker("email", value, user_id).start()
