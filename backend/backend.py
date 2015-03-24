@@ -22,7 +22,7 @@ def email():
     publish_to_queue_email(email_in, user_id)
     resp = make_response('202', 301)
     location_url = '/url/'+str(user_id)+"/"
-    print location_url
+    # print location_url
     resp.headers['Location'] = location_url
     resp.headers['Retry-After]'] = '5'
 

@@ -9,29 +9,29 @@ import requests
 
 from Utils.functions import replace_symbols
 from Utils.regex import get_regex_match_group
-from servicesWorker.ServiceWorker import ServiceWorker
+from servicesWorker.ServiceWorker import ServiceReceiver
 
 
-class BingCrawler(ServiceWorker):
-    MSG = "\tRunning bing api search"
+class BingCrawler(ServiceReceiver):
+
     results_rows = []
 
-    def run(self):
-        print self.MSG
+    def init_task(self):
         params = {'ImageFilters': '"Face:Face"',
                   '$format': 'json',
                   '$top': 50,
                   '$skip': 0}
-        self.search_email(self.cross_model.email, params)
-        self.search_email_prefix(self.cross_model.email_prefix, params)
+        self.search_email(self.cross.email, params)
+        self.search_email_prefix(self.cross.email_prefix, params)
         self.process_api_result()
-        self.queue_models()
 
     def search_email(self, email, params):
+        print " [x] %s | Searching email \"%s\"" % (self.queue.method.queue, self.cross.email, )
         request = self.search('web', email, params, exact_match=True).json()
         self.append_results(request)
 
     def search_email_prefix(self, email_prefix, params):
+        print " [x] %s | Searching email prefix \"%s\"" % (self.queue.method.queue, self.cross.email_prefix, )
         request = self.search('web', email_prefix, params, exact_match=True).json()
         self.append_results(request)
 
@@ -56,11 +56,11 @@ class BingCrawler(ServiceWorker):
         num_rows = len(self.results_rows)
         for index, result in enumerate(self.results_rows):
             index_weight = (num_rows-index) / (num_rows*1.0)
-            for key, service_model in self.services_models.iteritems():
+            for key, service_model in self.services.iteritems():
                 if service_model.url_base in result['DisplayUrl']:
                     service_model.put_candidate(result['Url'], index_weight)
                 else:
                     matches = get_regex_match_group(service_model.url_profile_rgx, result['Description'])
                     if matches:
                         service_model.put_candidate(matches, index_weight)
-                        self.cross_model.put_candidate(result['Url'])
+                        self.cross.put_candidate(result['Url'])

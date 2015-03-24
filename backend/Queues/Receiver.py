@@ -57,14 +57,14 @@ class ExchangeRpcReceiver(object):
 
     def on_message_received(self, ch, method, properties, body):
         try:
-            print "\n [*] %s received a request" % (self.queue.method.queue,)
+            print " [*] %s received a request" % (self.queue.method.queue,)
             self.reset_values()
             self.unserialize_message(body)
             self.set_reply_values(properties)
             self.init_task()
             self.serialize_message()
             self.publish_back()
-        except:
+        except Exception as e:
             print "Opsy!"
 
     def publish_back(self):

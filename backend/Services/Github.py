@@ -21,7 +21,6 @@ class GithubRPCCrawler(ServiceReceiver):
         print " [x] %s | Crawling name for email \"%s\"" % (self.queue.method.queue, self.cross.email, )
         this_service = self.services['gh']
         if this_service and this_service.url_profile:
-            print "\t\tLooking for user name"
             if "http" not in this_service.url_profile:
                 url_name = "http://"+this_service.url_profile
             else:

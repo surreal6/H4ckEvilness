@@ -36,13 +36,15 @@ class CrossModel(DbFieldsReading):
     def put_name_candidate(self, key):
         if self.names_.get(key, 0) is 0:
             for key_in, value in self.names_.iteritems():
-                print key + " vs " + key_in + "==" + str(jaro(key, key_in))
+                pass
+                # print key + " vs " + key_in + "==" + str(jaro(key, key_in))
         self.names_[key] = self.names_.get(key, 0) + 1
 
     def put_candidate(self, key):
         if self.diff_urls.get(key, 0) is 0:
+            pass
             #TODO. Edit distance case
-            print jaro('Thorkel', 'Thorgier')
+            # print jaro('Thorkel', 'Thorgier')
         self.diff_urls[key] = self.diff_urls.get(key, 0) + 1
 
     def mix_results(self, third):
@@ -65,7 +67,7 @@ class CrossModel(DbFieldsReading):
                         nameB = remove_accents(keyB)
 
                         jaro_rslt = jaro_winkler(nameA, nameB)
-                        print nameA + " vs " + nameA + " == " + str(jaro_rslt)
+                        # print nameA + " vs " + nameA + " == " + str(jaro_rslt)
                         if jaro_rslt > 0.8:
                             self.names_[key] += valueB
                             value += valueB
@@ -83,12 +85,12 @@ class CrossModel(DbFieldsReading):
                                     atomB = remove_accents(name_atoms_b[i])
                                     jaro_rslt_atoms = jaro(atomA, atomB)
                                     jaro_rslt_atoms_w = jaro_winkler(atomA, atomB)
-                                    print atomA + " vs " + atomB + "==" + str(jaro_rslt_atoms)
-                                    print atomA + " vs " + atomB + "==" + str(jaro_rslt_atoms_w)
+                                    # print atomA + " vs " + atomB + "==" + str(jaro_rslt_atoms)
+                                    # print atomA + " vs " + atomB + "==" + str(jaro_rslt_atoms_w)
                                 except IndexError:
                                     pass
-                            print str(name_atoms)
-                            print str(name_atoms_b)
+                            # print str(name_atoms)
+                            # print str(name_atoms_b)
                 if match:
                     break
             completeLoop = True
@@ -105,7 +107,8 @@ class CrossModel(DbFieldsReading):
                 final_candidate_value = value
         self.name = final_candidate
         if self.name:
-            print "** Name> "+self.name +"("+str(final_candidate_value)+")"
+            pass
+            # print "** Name> "+self.name +"("+str(final_candidate_value)+")"
 
     def get_user_values(self, user_id=None):
         maindb = MainDB()

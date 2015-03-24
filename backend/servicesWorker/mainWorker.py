@@ -26,7 +26,6 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
     model = None
 
     def __init__(self, key, value, user_id):
-        urllib3.disable_warnings()
 
         self.key = key
         self.value = value

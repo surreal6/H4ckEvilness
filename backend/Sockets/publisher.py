@@ -21,11 +21,11 @@ class SocketPublisher:
             self.socket = self.context.socket(zmq.PUB)
 
     def __del__(self):
-        print "__del__"
+        # print "__del__"
         self.socket.close()
 
     def send_string(self, unicode_str):
-        print "sending string to socket"
+        print " [*] Sending string to socket"
         # TODO. Technical debt
         time.sleep(0.5)
         self.socket.send_string(unicode_str)
