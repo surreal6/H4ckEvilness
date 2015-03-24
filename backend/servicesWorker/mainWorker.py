@@ -1,17 +1,21 @@
 # Here, the crawler triggers the requested search for N services (the existing ones).
 # Results will be written in the ddbb.
+import json
 import multiprocessing
+import pickle
 
 from requests.packages import urllib3
+from Queues.Emit import ExchangeRpcWorker
 
 from Services.CrossModel import CrossModel
 from Services.Github import *
 from Services.Twitter import *
 from Services.Bing import *
 from databases.mainDb import MainDB
+from servicesRaiser import servicesDict
 
 
-class MainWorker(multiprocessing.Process):
+class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
 
     key = None
     value = None
@@ -21,62 +25,80 @@ class MainWorker(multiprocessing.Process):
     cross_model = CrossModel()
     model = None
 
-    def run(self):
-        jobs = []
-        self.__init_models()
-        # self.__init_cross_model()
-        self.__init_services()
-        self.run_services_and_join(jobs)
-        self.set_jobs_results_in_model(jobs)
-        self.set_data_in_db()
-        print "*** All crawlers finished ***"
-        return
-
-    def run_services_and_join(self, jobs):
-        # Run all services and join them
-        for service in self.servicesObjects.itervalues():
-            jobs.append(service)
-            service.start()
-
-        for j in jobs:
-            j.join()
-
-    def set_jobs_results_in_model(self, jobs):
-        for num_jobs in range(len(jobs)):
-            result = self.results.get()
-            result_services_models = result.get("services", None)
-            result_cross_model = result.get("cross", None)
-            self.cross_model.mix_results(result_cross_model)
-            for key, value in self.servicesModels.iteritems():
-                service = result_services_models.get(key, None)
-                if service:
-                    value.mix_results(service)
-        self.cross_model.populate_name()
-
-    def set_data_in_db(self):
-        maindb = MainDB()
-        maindb.set_user_status(user_id=self.user_id, status=200)
-        maindb.set_services_models(self.user_id, self.servicesModels)
-        maindb.set_user_model(self.user_id, self.cross_model)
-        maindb.close()
-
     def __init__(self, key, value, user_id):
         urllib3.disable_warnings()
 
         self.key = key
         self.value = value
         self.user_id = user_id
-        self.tasks = multiprocessing.JoinableQueue()
-        self.results = multiprocessing.Queue()
+        self.callback_count = 0
         setattr(self.cross_model, key, value)
         super(MainWorker, self).__init__()
 
-    def __init_models(self):
+    def run(self):
+        self.set_models_from_db()
+
+        self.connect()
+        self.declare_queues()
+
+        self.serialize_body_msg()
+        self.publish()
+        self.wait_responses()
+        #self.set_results_in_instance() inside wait_response > on_emit_callback() >
+        self.set_results_in_db()
+        print " [x] All crawlers finished"
+        return
+
+    #Mixes existing values with coming ones.
+    def set_results_in_instance(self, body):
+        callback_result = self.unserialize_body_msg(body)
+        result_services_models = callback_result.get("services", None)
+        result_cross_model = callback_result.get("cross", None)
+        reply_queue = callback_result.get("reply_queue")
+
+        print "Reply queue %s" % (reply_queue,)
+        self.cross_model.mix_results(result_cross_model)
+        for key, value in self.servicesModels.iteritems():
+            service = result_services_models.get(key, None)
+            if service:
+                value.mix_results(service)
+        self.cross_model.populate_name()
+
+    def set_results_in_db(self):
+        maindb = MainDB()
+        maindb.set_user_status(user_id=self.user_id, status=200)
+        maindb.set_services_models(self.user_id, self.servicesModels)
+        maindb.set_user_model(self.user_id, self.cross_model)
+        maindb.close()
+
+    def check_stop_condition(self):
+        self.callback_count += 1
+        if self.callback_count >= len(servicesDict):
+            self.stop_consuming()
+
+    def serialize_body_msg(self):
+        json_cross = pickle.dumps(self.cross_model)
+        json_services = pickle.dumps(self.servicesModels)
+        return json.dumps({
+            "msg": "self.msg",
+            "cross": json_cross,
+            "services": json_services,
+            "exchange_str": self.callback_queue.method.queue
+        })
+
+    def unserialize_body_msg(self, body):
+        json_obj = json.loads(body)
+        cross = pickle.loads(json_obj['cross'])
+        services = pickle.loads(json_obj['services'])
+
+        return {
+            "cross": cross,
+            "services": services,
+            "msg": json_obj['msg'],
+            "reply_queue": json_obj['reply_queue'],
+        }
+
+    def set_models_from_db(self):
         self.cross_model.set_user_values(self.user_id)
         for key, service in self.servicesModels.iteritems():
             service.set_user_values(self.user_id)
-
-    def __init_services(self):
-        for key, className in self.services.iteritems():
-            foo = globals()[className]
-            self.servicesObjects[key] = foo(services_models=self.servicesModels.copy(), cross_model=self.cross_model, task_queue=self.tasks, result_queue= self.results)

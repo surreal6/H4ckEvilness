@@ -3,6 +3,7 @@ from Utils.functions import remove_accents
 from databases.mainDb import MainDB
 from Levenshtein import *
 
+
 class CrossModel(DbFieldsReading):
 
     email = None
@@ -64,7 +65,7 @@ class CrossModel(DbFieldsReading):
                         nameB = remove_accents(keyB)
 
                         jaro_rslt = jaro_winkler(nameA, nameB)
-                        print nameA + " vs " + nameA + "==" + str(jaro_rslt)
+                        print nameA + " vs " + nameA + " == " + str(jaro_rslt)
                         if jaro_rslt > 0.8:
                             self.names_[key] += valueB
                             value += valueB

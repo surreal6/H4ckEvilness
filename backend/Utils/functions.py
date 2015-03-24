@@ -11,6 +11,8 @@ from Sockets.publisher import SocketPublisher
 
 
 KEY = "MK7Bl7O903"
+PUSH_EXCHANGE = "push_exchange"
+PULL_EXCHANGE = "pull_exchange"
 
 def publish_to_queue_email(email_in, user_id):
     publisher = SocketPublisher()

@@ -1,4 +1,5 @@
 import multiprocessing
+from Queues.Receiver import ExchangeRpcReceiver
 from databases.mainDb import MainDB
 
 
@@ -43,10 +44,34 @@ class ServiceWorker(multiprocessing.Process):
         super(ServiceWorker, self).__init__()
 
 
-class FacebookCrawler(ServiceWorker):
+class ServiceReceiver(ExchangeRpcReceiver):
 
-    MSG = "\t\tRunning facebook crawler"
+    MSG = 'Running service'
 
-    def run(self):
-        super(FacebookCrawler, self).run()
-        return
+    url_api = None
+    auth_email = None
+    auth_pass = None
+    auth_key = None
+    _fields = ('url_api', 'auth_email', 'auth_pass', 'auth_key')
+
+    def get_db_values(self):
+        className = self.__class__.__name__
+        mainDb = MainDB()
+        values = mainDb.get_service_values_by_name(className)
+        if values:
+            return values
+        raise Exception
+
+    def set_auth_values(self):
+        try:
+            values = self.get_db_values()
+            for key, value in values.iteritems():
+                if key in self._fields:
+                    self.__setattr__(key, value)
+        except Exception:
+            pass
+            # TODO
+
+    def __init__(self):
+        self.set_auth_values()
+        super(ServiceReceiver, self).__init__()
