@@ -81,9 +81,9 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         json_services = pickle.dumps(self.servicesModels)
         return json.dumps({
             "msg": "self.msg",
+            "exchange_str": self.callback_queue.method.queue,
             "cross": json_cross,
             "services": json_services,
-            "exchange_str": self.callback_queue.method.queue
         })
 
     def unserialize_body_msg(self, body):
@@ -93,9 +93,9 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
 
         return {
             "cross": cross,
+            "reply_queue": json_obj['reply_queue'],
             "services": services,
             "msg": json_obj['msg'],
-            "reply_queue": json_obj['reply_queue'],
         }
 
     def set_models_from_db(self):

@@ -43,13 +43,12 @@ class TwitterCrawler(ServiceWorker):
 
 
 class TwitterRpcCrawler(ServiceReceiver):
-    MSG = "\tRan twitter\'s crawler"
 
     def init_task(self):
-        print self.MSG
         self.crawl_name()
 
     def crawl_name(self):
+        print "\t [x] Crawling name for email \"%s\"" % (self.cross.email, )
         this_service = self.services['tw']
         if this_service and this_service.url_profile:
             print "\t\tLooking for user name"

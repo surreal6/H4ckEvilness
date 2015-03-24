@@ -11,11 +11,9 @@ class ExchangeRpcReceiver(object):
     queue = None
 
     def __init__(self):
-        self.cross = None
-        self.services = None
         self.reply_to = None
         self.correlation_id = None
-        self.json_obj = None
+        self.callback_msg = None
 
         self.connect()
         self.declare_exchanges()
@@ -59,18 +57,18 @@ class ExchangeRpcReceiver(object):
 
     def on_message_received(self, ch, method, properties, body):
         try:
+            print " [*] %s" % (self.queue.method.queue,)
             self.reset_values()
             self.unserialize_message(body)
             self.set_reply_values(properties)
             self.init_task()
+            self.serialize_message()
             self.publish_back()
         except:
             print "Opsy!"
 
     def publish_back(self):
-        print "[*] Receiver %s" % (self.queue.method.queue,)
-        print "\t [x] Received %s" % (self.json_obj['msg'],)
-        print "\t [x] Publishing back to: %s\n" % (self.reply_to, )
+        print "\t [x] Publishing results back to @%s\n" % (self.reply_to, )
 
         self.channel.basic_publish(
             exchange='',
@@ -78,38 +76,28 @@ class ExchangeRpcReceiver(object):
             properties=pika.BasicProperties(
                 correlation_id=self.correlation_id
             ),
-            body=self.serialize_message()
+            body=self.callback_msg
         )
-
-    def init_task(self):
-        raise NotImplementedError
 
     def stop_consuming(self):
         self.channel.stop_consuming()
-
-    def unserialize_message(self, body):
-        self.json_obj = json.loads(body)
-        self.cross = pickle.loads(self.json_obj['cross'])
-        self.services = pickle.loads(self.json_obj['services'])
-
-    def serialize_message(self):
-        json_cross = pickle.dumps(self.cross)
-        json_services = pickle.dumps(self.services)
-        response = {
-            "reply_queue": self.queue.method.queue,
-            "msg": "It's " + str(int(round(time.time() * 1000))),
-            "cross": json_cross,
-            "services": json_services
-        }
-        return json.dumps(response)
 
     def set_reply_values(self, properties):
         self.reply_to = properties.reply_to
         self.correlation_id = properties.correlation_id
 
     def reset_values(self):
-        self.cross = None
-        self.services = None
         self.reply_to = None
         self.correlation_id = None
-        self.json_obj = None
+        self.callback_msg = None
+
+    def init_task(self):
+        raise NotImplementedError
+
+    #Child decides what to do with coming data.
+    def unserialize_message(self, body):
+        raise NotImplementedError
+
+    #Childs define how to serialize going data
+    def serialize_message(self):
+        raise NotImplementedError
