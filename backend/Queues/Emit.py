@@ -42,7 +42,7 @@ class ExchangeRpcWorker(object):
         try:
             self.channel.basic_consume(self.on_emit_callback, queue=self.callback_queue.method.queue)
             self.channel.start_consuming()
-            self.connection.close()
+            # self.connection.close()
         except KeyboardInterrupt:
             self.channel.queue_unbind(
                 exchange=PULL_EXCHANGE,

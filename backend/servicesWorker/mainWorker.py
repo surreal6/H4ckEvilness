@@ -40,13 +40,26 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         self.connect()
         self.declare_queues()
 
-        self.serialize_body_msg()
-        self.publish()
-        self.wait_responses()
-        #self.set_results_in_instance() inside wait_response > on_emit_callback() >
-        print " [*] All services finished and results were mixed. Writing results in db..."
+        count = 0
+        while True:
+            count += 1
+            if count > 10:
+                print " [+] Security case. Over 10 loops"
+                break
+            self.cross_model.changed = False
+            self.callback_count = 0
+            self.serialize_body_msg()
+            self.publish()
+            self.wait_responses()
+            #self.set_results_in_instance() inside wait_response > on_emit_callback() >
+            print " [*] All services finished and results were mixed. Writing results in db..."
+            print " [x] Do we have new values to research about? %s " % (self.cross_model.changed,)
+            if self.cross_model.changed:
+                print " [*] == LOOP ==\n\n"
+            else:
+                print " [*] == DONE ==\n\n"
+                break
         self.set_results_in_db()
-        print " [*] == DONE ==\n\n"
         return
 
     #Mixes existing values with coming ones.

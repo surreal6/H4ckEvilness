@@ -16,8 +16,6 @@ def raise_rpc_receiver(key, value):
 
 def signal_handler(signal, frame):
     print 'You pressed Ctrl+C!'
-    # for thread in threads:
-    #     thread.raise_exc(SystemExit)
     sys.exit(0)
 
 servicesDict = {"twitter": "TwitterCrawler", "github": "GithubRPCCrawler", "bing": "BingCrawler"}

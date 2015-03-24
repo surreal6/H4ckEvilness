@@ -24,7 +24,7 @@ class CrossModel(DbFieldsReading):
         self.diff_urls = dict()
         self.emails_ = dict()
         self.names_ = dict()
-        pass
+        self.changed = False
 
     def __setattr__(self, name, value):
         if name is "email":
@@ -51,6 +51,14 @@ class CrossModel(DbFieldsReading):
         self.diff_urls.update(third.diff_urls)
         self.emails_.update(third.emails_)
         self.names_.update(third.names_)
+
+        # print "Control. Changed %s" % (self.changed,)
+        self.changed = self.changed or self.are_new_values_to_update(self.diff_urls, third.diff_urls)
+        # print "Changed %s %s vs %s" % (self.changed, len(self.diff_urls.keys()), len(third.diff_urls.keys()),)
+        self.changed = self.changed or self.are_new_values_to_update(self.names_, third.names_)
+        # print "Changed %s" % (self.changed,)
+        self.changed = self.changed or self.are_new_values_to_update(self.emails_, third.emails_)
+        # print "Changed %s" % (self.changed,)
 
     def mix_names(self):
         # HINT. Not efficient. Not at all.
@@ -105,11 +113,17 @@ class CrossModel(DbFieldsReading):
             if value > final_candidate_value:
                 final_candidate = key
                 final_candidate_value = value
-        self.name = final_candidate
-        if self.name:
-            pass
-            # print "** Name> "+self.name +"("+str(final_candidate_value)+")"
+        if not self.name or (self.name is not final_candidate):
+            self.name = final_candidate
+            self.changed = True
 
     def get_user_values(self, user_id=None):
         maindb = MainDB()
         return maindb.get_user(self, user_id=user_id)
+
+    @staticmethod
+    def are_new_values_to_update(dictA, dictB):
+        sym_diff = len(set(dictA.keys()).symmetric_difference(set(dictB.keys())))
+        # print "\t Sym.Diff values %s" % (sym_diff,)
+        return sym_diff is not 0
+
