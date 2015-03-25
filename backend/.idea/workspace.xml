@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4198c27c-9ee1-40b6-949f-73857a346035" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Services/CrossModel.py" afterPath="$PROJECT_DIR$/Services/CrossModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Queues/Emit.py" afterPath="$PROJECT_DIR$/Queues/Emit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_requestEmail.py" afterPath="$PROJECT_DIR$/_requestEmail.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Services/ServiceModel.py" afterPath="$PROJECT_DIR$/Services/ServiceModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/servicesWorker/mainWorker.py" afterPath="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/servicesRaiser.py" afterPath="$PROJECT_DIR$/servicesRaiser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="backend.iws" />
@@ -43,8 +41,8 @@
           <file leaf-file-name="mainWorker.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="2340">
-                  <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="732" max-vertical-offset="2394">
+                  <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
                   <folding>
                     <element signature="e#125#136#0" expanded="true" />
                   </folding>
@@ -57,9 +55,7 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
                   <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-                  <folding>
-                    <marker date="1427213526188" expanded="true" signature="499:553" placeholder="..." />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -76,11 +72,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ServiceModel.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="ServiceModel.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Services/ServiceModel.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1044">
-                  <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+                <state vertical-scroll-proportion="0.6347826" vertical-offset="102" max-vertical-offset="1368">
+                  <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -98,11 +94,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CrossModel.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="CrossModel.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33913043" vertical-offset="0" max-vertical-offset="2430">
-                  <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="804" max-vertical-offset="2412">
+                  <caret line="57" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#49#0" expanded="true" />
                   </folding>
@@ -184,12 +180,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_requestEmail.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="_requestEmail.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_requestEmail.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3328592" vertical-offset="0" max-vertical-offset="703">
-                  <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+                  <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="functions.py" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Utils/functions.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.92318636" vertical-offset="647" max-vertical-offset="1404">
+                  <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#14#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -228,10 +236,8 @@
         <option value="$PROJECT_DIR$/Services/DictMixing.py" />
         <option value="$PROJECT_DIR$/Utils/dictMixing.py" />
         <option value="$PROJECT_DIR$/Metas/DbFieldsReading.py" />
-        <option value="$PROJECT_DIR$/Services/ServiceModel.py" />
         <option value="$PROJECT_DIR$/databases/requestDb.py" />
         <option value="$PROJECT_DIR$/databases/mainDb.py" />
-        <option value="$PROJECT_DIR$/Utils/functions.py" />
         <option value="$PROJECT_DIR$/socketSubscriber.py" />
         <option value="$PROJECT_DIR$/servicesWorker/ServiceWorker.py" />
         <option value="$PROJECT_DIR$/Queues/Receiver.py" />
@@ -242,9 +248,11 @@
         <option value="$PROJECT_DIR$/Sockets/publisher.py" />
         <option value="$PROJECT_DIR$/servicesRaiser.py" />
         <option value="$PROJECT_DIR$/Queues/Emit.py" />
-        <option value="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
         <option value="$PROJECT_DIR$/_requestEmail.py" />
         <option value="$PROJECT_DIR$/Services/CrossModel.py" />
+        <option value="$PROJECT_DIR$/Utils/functions.py" />
+        <option value="$PROJECT_DIR$/servicesWorker/mainWorker.py" />
+        <option value="$PROJECT_DIR$/Services/ServiceModel.py" />
       </list>
     </option>
   </component>
@@ -934,7 +942,11 @@
       <created>1427214164841</created>
       <updated>1427214164841</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Loop conditions">
+      <created>1427231321651</created>
+      <updated>1427231321651</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1018,7 +1030,8 @@
     <MESSAGE value="Output logs" />
     <MESSAGE value="Moar cleaning" />
     <MESSAGE value="RabbitMQ done" />
-    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ done" />
+    <MESSAGE value="Loop conditions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loop conditions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1030,7 +1043,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/Services/ServiceModel.py</url>
-          <line>49</line>
+          <line>54</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1243,16 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4638298" vertical-offset="699" max-vertical-offset="1404">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/dist-packages/serial/serialcli.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4968">
@@ -1336,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="882">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/servicesRaiser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
@@ -1370,6 +1365,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/backend.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54077256" vertical-offset="0" max-vertical-offset="466">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/dictMixing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.119205296" vertical-offset="0" max-vertical-offset="540">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/Bing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="1278">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding>
+            <element signature="e#272#287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="804" max-vertical-offset="2412">
+          <caret line="57" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Services/Github.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="702">
@@ -1380,11 +1411,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/backend.iml">
+    <entry file="file://$PROJECT_DIR$/_requestEmail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54077256" vertical-offset="0" max-vertical-offset="466">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92318636" vertical-offset="647" max-vertical-offset="1404">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="882">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="732" max-vertical-offset="2394">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#125#136#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1392,9 +1451,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <marker date="1427213526188" expanded="true" signature="499:553" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,55 +1467,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/ServiceModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1044">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.6347826" vertical-offset="102" max-vertical-offset="1368">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/dictMixing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.119205296" vertical-offset="0" max-vertical-offset="540">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesWorker/mainWorker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="2340">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#125#136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/Bing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="1278">
-          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
-          <folding>
-            <element signature="e#272#287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_requestEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328592" vertical-offset="0" max-vertical-offset="703">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/CrossModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33913043" vertical-offset="0" max-vertical-offset="2430">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

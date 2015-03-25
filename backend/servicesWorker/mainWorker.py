@@ -16,7 +16,6 @@ from servicesRaiser import servicesDict
 
 
 class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
-
     key = None
     value = None
     services = {"bing": "BingCrawler", "github": "GithubCrawler", "twitter": "TwitterCrawler"}
@@ -47,14 +46,16 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
                 print " [+] Security case. Over 10 loops"
                 break
             self.cross_model.changed = False
+            map(ServiceModel.reset_changed, self.servicesModels.itervalues())
             self.callback_count = 0
             self.serialize_body_msg()
             self.publish()
             self.wait_responses()
-            #self.set_results_in_instance() inside wait_response > on_emit_callback() >
+            # self.set_results_in_instance() inside wait_response > on_emit_callback() >
             print " [*] All services finished and results were mixed. Writing results in db..."
-            print " [x] Do we have new values to research about? %s " % (self.cross_model.changed,)
-            if self.cross_model.changed:
+            print " [x] Do we have new values to research about? %s " % (self.are_changes(),)
+
+            if self.are_changes():
                 print " [*] == LOOP ==\n\n"
             else:
                 print " [*] == DONE ==\n\n"
@@ -62,7 +63,7 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         self.set_results_in_db()
         return
 
-    #Mixes existing values with coming ones.
+    # Mixes existing values with coming ones.
     def set_results_in_instance(self, body):
         callback_result = self.unserialize_body_msg(body)
         result_services_models = callback_result.get("services", None)
@@ -122,3 +123,6 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         self.cross_model.set_user_values(self.user_id)
         for key, service in self.servicesModels.iteritems():
             service.set_user_values(self.user_id)
+
+    def are_changes(self):
+        return self.cross_model.changed or (True in list(map(ServiceModel.is_changed, self.servicesModels.itervalues())))

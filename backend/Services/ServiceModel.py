@@ -15,6 +15,7 @@ class ServiceModel(DbFieldsReading):
     nick = None
     nick_id = None
     candidates_ = {}
+    changed = False
 
     def __init__(self):
         super(ServiceModel, self).__init__()
@@ -25,6 +26,10 @@ class ServiceModel(DbFieldsReading):
         self.candidates_[key] = self.candidates_.get(key, 0) + 1 + weight
 
     def mix_results(self, third):
+        # print str(third.candidates_)
+        # print "Control. Changed %s" % (self.changed,)
+        self.changed = self.changed or self.are_new_values_to_update(self.candidates_, third.candidates_)
+        # print "Changed %s %s vs %s" % (self.changed, len(self.candidates_.keys()), len(third.candidates_.keys()),)
         self.candidates_ = sym_diff_and_adding_intersec(self.candidates_.copy(),
                                                         third.candidates_.copy())
         self.populate_candidate()
@@ -53,3 +58,16 @@ class ServiceModel(DbFieldsReading):
     def get_user_values(self, user_id=None):
         maindb = MainDB()
         return maindb.get_service_model(user_id, self)
+
+    @staticmethod
+    def are_new_values_to_update(dictA, dictB):
+        sym_diff = len(set(dictA.keys()).symmetric_difference(set(dictB.keys())))
+        # print "\t Sym.Diff values %s" % (sym_diff,)
+        return sym_diff is not 0
+
+    def is_changed(self):
+        # print self.__class__.__name__+" "+str(self.changed)
+        return self.changed
+
+    def reset_changed(self):
+        self.changed = False

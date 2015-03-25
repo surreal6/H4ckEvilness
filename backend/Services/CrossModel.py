@@ -60,6 +60,28 @@ class CrossModel(DbFieldsReading):
         self.changed = self.changed or self.are_new_values_to_update(self.emails_, third.emails_)
         # print "Changed %s" % (self.changed,)
 
+    def populate_name(self):
+        self.mix_names()
+        final_candidate = None
+        final_candidate_value = 0
+        for key, value in self.names_.iteritems():
+            if value > final_candidate_value:
+                final_candidate = key
+                final_candidate_value = value
+        if not self.name or (self.name is not final_candidate):
+            self.name = final_candidate
+            self.changed = True
+
+    def get_user_values(self, user_id=None):
+        maindb = MainDB()
+        return maindb.get_user(self, user_id=user_id)
+
+    @staticmethod
+    def are_new_values_to_update(dictA, dictB):
+        sym_diff = len(set(dictA.keys()).symmetric_difference(set(dictB.keys())))
+        # print "\t Sym.Diff values %s" % (sym_diff,)
+        return sym_diff is not 0
+
     def mix_names(self):
         # HINT. Not efficient. Not at all.
         new_names_ = {}
@@ -104,26 +126,3 @@ class CrossModel(DbFieldsReading):
             completeLoop = True
         # print "_Candidate len: " + str(len(self.names_))
         # print "_Candidate names: " + str(self.names_)
-
-    def populate_name(self):
-        self.mix_names()
-        final_candidate = None
-        final_candidate_value = 0
-        for key, value in self.names_.iteritems():
-            if value > final_candidate_value:
-                final_candidate = key
-                final_candidate_value = value
-        if not self.name or (self.name is not final_candidate):
-            self.name = final_candidate
-            self.changed = True
-
-    def get_user_values(self, user_id=None):
-        maindb = MainDB()
-        return maindb.get_user(self, user_id=user_id)
-
-    @staticmethod
-    def are_new_values_to_update(dictA, dictB):
-        sym_diff = len(set(dictA.keys()).symmetric_difference(set(dictB.keys())))
-        # print "\t Sym.Diff values %s" % (sym_diff,)
-        return sym_diff is not 0
-
