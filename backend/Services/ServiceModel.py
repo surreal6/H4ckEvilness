@@ -28,6 +28,9 @@ class ServiceModel(DbFieldsReading):
     def mix_results(self, third):
         # print str(third.candidates_)
         # print "Control. Changed %s" % (self.changed,)
+        if self.are_new_values_to_update(self.candidates_, third.candidates_):
+            intersect = set(self.candidates_.keys()).symmetric_difference(set(third.candidates_.keys()))
+            print "\t [+] %s new %s candidates" % (len(intersect), self.__class__.__name__)
         self.changed = self.changed or self.are_new_values_to_update(self.candidates_, third.candidates_)
         # print "Changed %s %s vs %s" % (self.changed, len(self.candidates_.keys()), len(third.candidates_.keys()),)
         self.candidates_ = sym_diff_and_adding_intersec(self.candidates_.copy(),

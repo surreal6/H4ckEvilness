@@ -1,6 +1,7 @@
 import requests
 from Services.ServiceModel import ServiceModel
 from Utils import functions
+from Utils.functions import remove_accents
 from servicesWorker.ServiceWorker import ServiceReceiver
 
 
@@ -30,6 +31,7 @@ class TwitterCrawler(ServiceReceiver):
             for line in r.iter_lines():
                 if checkedName:
                     name = functions.get_tag_value(line)
+                    name = remove_accents(name)
                     self.cross.put_name_candidate(name)
                     break
                 if line and ("ProfileHeaderCard-nameLink" in line):

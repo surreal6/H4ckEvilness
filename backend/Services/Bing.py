@@ -17,6 +17,7 @@ class BingCrawler(ServiceReceiver):
     results_rows = []
 
     def init_task(self):
+        self.results_rows = []
         params = {'ImageFilters': '"Face:Face"',
                   '$format': 'json',
                   '$top': 50,

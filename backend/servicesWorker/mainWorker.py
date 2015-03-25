@@ -18,10 +18,7 @@ from servicesRaiser import servicesDict
 class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
     key = None
     value = None
-    services = {"bing": "BingCrawler", "github": "GithubCrawler", "twitter": "TwitterCrawler"}
-    servicesObjects = {}
-    servicesModels = {"tw": TwitterModel(), "gh": GithubModel()}
-    cross_model = CrossModel()
+    # services = {"bing": "BingCrawler", "github": "GithubCrawler", "twitter": "TwitterCrawler"}
     model = None
 
     def __init__(self, key, value, user_id):
@@ -30,6 +27,8 @@ class MainWorker(multiprocessing.Process, ExchangeRpcWorker):
         self.value = value
         self.user_id = user_id
         self.callback_count = 0
+        self.servicesModels = {"tw": TwitterModel(), "gh": GithubModel()}
+        self.cross_model = CrossModel()
         setattr(self.cross_model, key, value)
         super(MainWorker, self).__init__()
 
