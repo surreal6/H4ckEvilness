@@ -73,6 +73,7 @@ class CrossModel(DbFieldsReading):
                 final_candidate_value = value
         if not self.name or (self.name is not final_candidate):
             self.name = final_candidate
+            # print "Final name %s" % (self.name,)
             self.changed = True
 
     def get_user_values(self, user_id=None):

@@ -7,6 +7,7 @@ from requests.packages import urllib3
 from Services.Github import *
 from Services.Twitter import *
 from Services.Bing import *
+from Services.Google import *
 
 
 def raise_rpc_receiver(key, value):
@@ -18,7 +19,7 @@ def signal_handler(signal, frame):
     print 'You pressed Ctrl+C!'
     sys.exit(0)
 
-servicesDict = {"twitter": "TwitterCrawler", "github": "GithubRPCCrawler", "bing": "BingCrawler"}
+servicesDict = {"twitter": "TwitterCrawler", "github": "GithubRPCCrawler", "bing": "BingCrawler", "google": "GoogleCrawler",}
 
 
 if __name__ == '__main__':

@@ -44,6 +44,17 @@ def replace_symbols(request):
     request = string.replace(request, ':', '%3a')
     return request
 
+def replace_symbols_bis(request):
+    # Custom urlencoder.
+    # They specifically want %27 as the quotation which is a single quote '
+    # We're going to map both ' and " to %27 to make it more python-esque
+    request = string.replace(request, "'", '%27')
+    request = string.replace(request, '"', '%22')
+    request = string.replace(request, '+', '%2b')
+    request = string.replace(request, ' ', '%20')
+    request = string.replace(request, ':', '%3a')
+    return request
+
 
 def get_tag_value(node):
     """retrieves value of given XML node

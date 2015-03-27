@@ -58,10 +58,12 @@ class BingCrawler(ServiceReceiver):
         for index, result in enumerate(self.results_rows):
             index_weight = (num_rows-index) / (num_rows*1.0)
             for key, service_model in self.services.iteritems():
-                if service_model.url_base in result['DisplayUrl']:
+                # if service_model.url_base in result['DisplayUrl']:
+                #     service_model.put_candidate(result['Url'], index_weight)
+                # else:
+                matches = get_regex_match_group(service_model.url_profile_rgx, result['DisplayUrl'])
+                if matches:
+                    service_model.put_candidate(matches, index_weight)
+                    self.cross.put_candidate(result['Url'])
+                elif service_model.url_base in result['DisplayUrl']:
                     service_model.put_candidate(result['Url'], index_weight)
-                else:
-                    matches = get_regex_match_group(service_model.url_profile_rgx, result['Description'])
-                    if matches:
-                        service_model.put_candidate(matches, index_weight)
-                        self.cross.put_candidate(result['Url'])

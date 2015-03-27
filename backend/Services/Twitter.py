@@ -7,6 +7,9 @@ from servicesWorker.ServiceWorker import ServiceReceiver
 
 class TwitterModel(ServiceModel):
 
+    def put_candidate(self, key, weight):
+        super(TwitterModel, self).put_candidate(key, weight)
+
     def populate_candidate(self):
         super(TwitterModel, self).populate_candidate()
         if self.url_profile:

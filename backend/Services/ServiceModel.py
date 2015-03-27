@@ -1,5 +1,5 @@
 from Metas.DbFieldsReading import DbFieldsReading
-from Utils.dictMixing import sym_diff_and_adding_intersec, get_highest_value_key
+from Utils.dictMixing import sym_diff_and_adding_intersection, get_highest_value_key
 from databases.mainDb import MainDB
 
 
@@ -33,7 +33,7 @@ class ServiceModel(DbFieldsReading):
             print "\t [+] %s new %s candidates" % (len(intersect), self.__class__.__name__)
         self.changed = self.changed or self.are_new_values_to_update(self.candidates_, third.candidates_)
         # print "Changed %s %s vs %s" % (self.changed, len(self.candidates_.keys()), len(third.candidates_.keys()),)
-        self.candidates_ = sym_diff_and_adding_intersec(self.candidates_.copy(),
+        self.candidates_ = sym_diff_and_adding_intersection(self.candidates_.copy(),
                                                         third.candidates_.copy())
         self.populate_candidate()
 
