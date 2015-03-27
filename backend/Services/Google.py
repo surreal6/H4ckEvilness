@@ -1,9 +1,9 @@
 import requests
-from Utils.functions import replace_symbols, replace_symbols_bis
-from servicesWorker.ServiceWorker import ServiceReceiver
 from pyquery import PyQuery as pq
-from BeautifulSoup import BeautifulSoup as Soup
-from beautifulsoupselect import select
+
+from Utils.functions import replace_symbols_bis
+from servicesWorker.ServiceWorker import ServiceReceiver
+
 
 class GoogleCrawler(ServiceReceiver):
 
@@ -15,24 +15,34 @@ class GoogleCrawler(ServiceReceiver):
 
     def init_task(self):
         self.results_rows = []
-        results = self.search_email()
-        self.append_results(results)
+        self.search_by_email_twitter()
+        self.search_by_email_github()
+        self.search_by_email_broad()
         self.process_api_result()
 
-    def search_email(self):
-        request = "q=\"" + self.cross.email + "\""
+    def search_by_email_broad(self):
+        print " [x] %s | Searching email \"%s\"" % (self.queue.method.queue, self.cross.email, )
+        results = self.search("\"" + self.cross.email + "\"")
+        self.append_results(results)
+
+    def search_by_email_twitter(self):
+        if self.cross.name and self.cross.email:
+            print " [x] %s | Searching twitter \"%s\"" % (self.queue.method.queue, self.cross.email, )
+            results = self.search("twitter " + self.cross.name + " " + self.cross.email)
+            self.append_results(results)
+
+    def search_by_email_github(self):
+        if self.cross.name and self.cross.email:
+            print " [x] %s | Searching github \"%s\"" % (self.queue.method.queue, self.cross.email, )
+            results = self.search("github " + self.cross.name + " " + self.cross.email)
+            self.append_results(results)
+
+    def search(self, query):
+        request = "q=" + query
         request = self.url_api + replace_symbols_bis(request)
         response = requests.get(request, headers=self.headers)
-
-        # soup = Soup(response.text)
-        # links = select(soup, 'div.web_result > div > a')
-        #
-        # for link in links:
-        #     title = link.string
-        #     href = link.get('href')
         d = pq(str(response.text))
-        returno = d(".web_result > div > div > span")
-        return returno
+        return d(".web_result > div > div > span")
 
     def append_results(self, request):
         try:
@@ -43,6 +53,7 @@ class GoogleCrawler(ServiceReceiver):
 
     def process_api_result(self):
         num_rows = len(self.results_rows)
+        # print "Up to proccess %s results" % (num_rows,)
         for index, result in enumerate(self.results_rows):
             index_weight = (num_rows-index) / (num_rows*1.0)
             for key, service_model in self.services.iteritems():
