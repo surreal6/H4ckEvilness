@@ -7,7 +7,7 @@ El maligno
 
 ## dependencias:
 
-    sudo apt-get install libpq-dev python-dev libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-devsudo 
+    sudo apt-get install libpq-dev python-dev libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev
 
     pip install scrapy 
 
