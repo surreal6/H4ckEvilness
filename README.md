@@ -3,46 +3,29 @@
 El maligno
 
 
-# Instalacion (para ubuntu 14.04)
+# Install
 
-## dependencias:
+Tested in Ubuntu 14.04 and 15.04.
 
-    sudo apt-get install libpq-dev python-dev libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev
-
-    pip install scrapy 
+    sudo apt-get install libpq-dev python-dev libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev postgresql python-psycopg2 rabbitmq-server  
 
     git clone git@github.com:H4ckEvilness/H4ckEvilness.git
     cd H4ckEvilness
     sudo sh prior.sh
 
-# ejecucion
+
+# Config
+
+The database needs to be set up before running the server:
+
+    sudo -u postgres createuser -P maligno
+    sudo -u postgres createdb evilDatabase -O maligno
+
+Use `ePvP4quXsHvp` as user password.
+
+
+# Run
 
     python backend/backend.py
 
-con esto se hace correr el servidor, se puede visitar en http://127.0.0.1:5000/
-
-si se introduce esta url:
-
-http://127.0.0.1:5000/email/?email=mariano.rajoy@pp.es
-
-se realiza una peticion de ese mail al server, pero a partir de aqui salen algunos errores...
-
-hasta aqui he averiguado
-
-# la base de datos
-
-$ sudo apt-get install postgresql
-
-$ sudo apt-get install python-psycopg2
-
-Here we install the psycopg2 module on a Ubuntu system.
-
-_dbname = 'evilDatabase'
-_user = 'maligno'
-_host = 'localhost'
-_pass = 'ePvP4quXsHvp'
-
-$ sudo -u postgres createuser maligno
-$ sudo -u postgres createdb evilDatabase -O maligno
-
-The createdb command creates a new PostgreSQL database with the owner janbodnar. 
+The server is at http://127.0.0.1:5000/. Go to http://127.0.0.1:5000/email/?email=mariano.rajoy@pp.es to make a request.
