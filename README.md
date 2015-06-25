@@ -28,3 +28,21 @@ http://127.0.0.1:5000/email/?email=mariano.rajoy@pp.es
 se realiza una peticion de ese mail al server, pero a partir de aqui salen algunos errores...
 
 hasta aqui he averiguado
+
+# la base de datos
+
+$ sudo apt-get install postgresql
+
+$ sudo apt-get install python-psycopg2
+
+Here we install the psycopg2 module on a Ubuntu system.
+
+_dbname = 'evilDatabase'
+_user = 'maligno'
+_host = 'localhost'
+_pass = 'ePvP4quXsHvp'
+
+$ sudo -u postgres createuser maligno
+$ sudo -u postgres createdb evilDatabase -O maligno
+
+The createdb command creates a new PostgreSQL database with the owner janbodnar. 
