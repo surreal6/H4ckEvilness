@@ -26,6 +26,10 @@ Use `ePvP4quXsHvp` as user password.
 
 # Run
 
+There are three processes that need to be run simultaneously:
+
     python backend/backend.py
+    python backend/servicesRaiser.py
+    python backend/socketSubscriber.py
 
 The server is at http://127.0.0.1:5000/. Go to http://127.0.0.1:5000/email/?email=mariano.rajoy@pp.es to make a request.
